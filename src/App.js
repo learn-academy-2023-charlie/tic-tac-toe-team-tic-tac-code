@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Square from './components/Square'
+import Button from './components/Buttons.js'
 import './App.css'
 
 const App = () => {
@@ -26,7 +27,9 @@ const App = () => {
     } else {
       newSquares[selectedIndex] = newSquares[selectedIndex]
     }
-
+    if (!newSquares.includes(null)){
+      alert("Game Over")
+      return setTimeout(() => window.location.reload(), 1000)}
     setSquares(newSquares)
     return squares;
   }
@@ -54,6 +57,7 @@ return (
   <>
       <h1>Tic Tac Toe</h1>
       <Square squares= {squares} handleClick = {handleClick} />
+      <Button /> 
     </>
   )
 }
